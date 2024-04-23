@@ -1,4 +1,5 @@
-@include('layouts.head')
+@section('title', 'Home')
+<x-layout>
 <main>
     <section>
         <div class="container">
@@ -7,4 +8,4 @@
         </div>
     </section>
 </main>
-@include('layouts.footer')
+</x-layout>
