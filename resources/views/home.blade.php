@@ -9,6 +9,7 @@
                 <li><a href="{{ route('dashboard') }}">Admin -> Dashboard</a></li>
                 <li><a href="{{ route('admin.users.index') }}">Admin -> Lista de usuarios</a></li>
                 <li><a href="{{ route('admin.users.create') }}">Admin -> Crear usuario</a></li>
+                <li><a href="{{ route('admin.test') }}">Admin -> Test</a></li>
                 
             </ul>
         </div>

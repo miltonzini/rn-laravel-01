@@ -20,6 +20,6 @@
     <!-- <script src="{{ mix('vendor/adminlte/plugins/jquery/jquery.min.js') }}"></script> -->
     <!-- <script src="{{ mix('vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script> -->
     <script src="{{ mix('vendor/adminlte/js/adminlte.min.js') }}"></script>
-    <script src="{{ mix('vendor/adminlte/js/demo.js') }}"></script>
+    <!-- <script src="{{ mix('vendor/adminlte/js/demo.js') }}"></script> -->
 </body>
 </html>
