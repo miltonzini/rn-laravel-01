@@ -4,7 +4,13 @@
     <section>
         <div class="container">
             <h1>Home</h1>
-            <p>asdLorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam deserunt quisquam, mollitia quos corrupti dolorum earum possimus delectus officia ducimus. Nam voluptate ut quis eligendi. Voluptates vel iste saepe a.</p>
+            <ul>
+                <li><a href="{{ route('login') }}">Login</a></li>
+                <li><a href="{{ route('dashboard') }}">Admin -> Dashboard</a></li>
+                <li><a href="{{ route('admin.users.index') }}">Admin -> Lista de usuarios</a></li>
+                <li><a href="{{ route('admin.users.create') }}">Admin -> Crear usuario</a></li>
+                
+            </ul>
         </div>
     </section>
 </main>
