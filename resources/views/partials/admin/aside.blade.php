@@ -6,13 +6,13 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="{{ route('dashboard')}}" class="nav-link">
+                    <a href="{{ route('dashboard')}}" class="nav-link {{ setActiveRoute('dashboard') }}">
                         <i class="nav-icon fas fa-home"></i>
                         <p>Inicio</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="#" class="nav-link {{ setActiveRoute(['admin.users', 'admin.users.index', 'admin.users.create']) }}">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Usuarios
@@ -21,13 +21,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.users.index')}}" class="nav-link">
+                            <a href="{{ route('admin.users.index')}}" class="nav-link {{ setActiveRoute('admin.users.index') }}">
                                 <i class="fas fa-users nav-icon"></i>
                                 <p>Todos los usuarios</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{ route('admin.users.create')}}" class="nav-link">
+                            <a href="{{ route('admin.users.create')}}" class="nav-link {{ setActiveRoute('admin.users.create') }}">
                                 <i class="fas fa-plus nav-icon"></i>
                                 <p>Crear Usuario</p>
                             </a>

@@ -1,0 +1,20 @@
+/* Test classes */
+.bg-pink {background: pink}
+.bg-red {background: red}
+.bg-blue {background: blue}
+
+
+
+/* Admin Pages */
+
+/* Create User */
+.register-box {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Aside */
+aside .nav-link .active {
+    background: rgba(255,255,255,.3);
+}
