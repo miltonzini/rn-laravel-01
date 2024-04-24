@@ -1,5 +1,5 @@
 @section('title', 'usersList')
-<x-layout>
+<x-adminLayout>
 <main>
     <section>
         <div class="container">
@@ -8,4 +8,4 @@
         </div>
     </section>
 </main>
-</x-layout>a
+</x-adminLayout>
