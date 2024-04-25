@@ -1,4 +1,4 @@
-@section('title', 'usersList')
+@section('title', 'Users Index')
 <x-adminLayout>
     <div class="wrapper">
         @include('partials.admin.nav')
@@ -49,12 +49,15 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                            @foreach($users as $user)
                                                 <tr>
-                                                    <td>Juan</td>
-                                                    <td>Marini</td>
-                                                    <td>juan.marini@rednodo.com</td>
-                                                    <td>22/04/2024</td>
+                                                    <td>{{ $user->name }}</td>
+                                                    <td>{{ $user->surname }}</td>
+                                                    <td>{{ $user->email }}</td>
+                                                    <td>{{ $user->created_at }}</td>
                                                 </tr>
+                                            @endforeach
+                                                
                                             </tbody>
                                         </table>
                                     </div>
