@@ -20,4 +20,13 @@ class UserController extends Controller
         // guardar usuario en la base de datos (post)
         // ...
     }
+
+    public function edit($id) {
+        // mostrar formulario para editar usuario
+        $userData = User::select('id', 'name', 'surname', 'email')->where('id', $id)->first();
+        if (!$userData) {
+            return view('admin.dashboard'); 
+        }
+        return view('admin.users.edit', ['userData' => $userData]); 
+    }
 }

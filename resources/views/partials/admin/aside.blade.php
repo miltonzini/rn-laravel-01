@@ -12,7 +12,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link {{ setActiveRoute(['admin.users', 'admin.users.index', 'admin.users.create']) }}">
+                    <a href="#" class="nav-link {{ setActiveRoute(['admin.users', 'admin.users.index', 'admin.users.create', 'admin.users.edit']) }}">
                         <i class="nav-icon fas fa-user"></i>
                         <p>
                             Usuarios

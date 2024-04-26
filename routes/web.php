@@ -12,6 +12,7 @@ Route::get('/admin', function () {return view('admin.dashboard');})->name('dashb
 
 Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
 Route::get('/admin/users/index', [UserController::class, 'index'])->name('admin.users.index');
+Route::get('/admin/users/edit/{id}', [UserController::class, 'edit'])->name('admin.users.edit');
 
 // Temp
 Route::get('/admin/test', function () {return view('admin.test');})->name('admin.test');
