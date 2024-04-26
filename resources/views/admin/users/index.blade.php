@@ -46,6 +46,7 @@
                                                     <th>Apellido</th>
                                                     <th>Email</th>
                                                     <th>Fecha de registro</th>
+                                                    <th>Acciones</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -55,6 +56,10 @@
                                                     <td>{{ $user->surname }}</td>
                                                     <td>{{ $user->email }}</td>
                                                     <td>{{ $user->created_at }}</td>
+                                                    <td>
+                                                        <a class="btn btn-primary btn-sm" href="{{ route('admin.users.edit', ['id' => $user->id]) }}">Editar</a>
+                                                        <a class="btn btn-danger btn-sm" href="#">Eliminar</a>
+                                                    </td>
                                                 </tr>
                                             @endforeach
                                                 
