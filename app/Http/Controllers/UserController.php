@@ -10,10 +10,12 @@ class UserController extends Controller
     
     public function index() {
         $users = User::all(); 
-        return view('admin.users.index', ['users' => $users]);
+        $scripts = ['users'];
+        return view('admin.users.index', compact('users', 'scripts'));
     }
     public function create() {
-        return view('admin.users.create');
+        $scripts = ['users.js'];
+        return view('admin.users.create', compact('scripts'));
     }
 
     public function store() {
@@ -25,8 +27,9 @@ class UserController extends Controller
         // mostrar formulario para editar usuario
         $userData = User::select('id', 'name', 'surname', 'email')->where('id', $id)->first();
         if (!$userData) {
-            return view('admin.dashboard'); 
+            return redirect()->route('admin.users.index');
         }
-        return view('admin.users.edit', ['userData' => $userData]); 
+        $scripts = ['users.js'];
+        return view('admin.users.edit', compact('userData', 'scripts')); 
     }
 }
