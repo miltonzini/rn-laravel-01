@@ -10,8 +10,9 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 
 Route::get('/admin', function () {return view('admin.dashboard');})->name('dashboard');
 
-Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
 Route::get('/admin/users/index', [UserController::class, 'index'])->name('admin.users.index');
+Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
+Route::post('/admin/users/store', [UserController::class, 'store'])->name('admin.users.store');
 Route::get('/admin/users/edit/{id}', [UserController::class, 'edit'])->name('admin.users.edit');
 
 // Temp

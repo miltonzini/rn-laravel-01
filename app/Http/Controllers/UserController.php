@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User; 
+use Hash;
 
 class UserController extends Controller
 {
@@ -18,9 +19,24 @@ class UserController extends Controller
         return view('admin.users.create', compact('scripts'));
     }
 
-    public function store() {
-        // guardar usuario en la base de datos (post)
-        // ...
+    public function store(Request $request) {
+        $name = $request->input('name');
+        $surname = $request->input('surname');
+        $email = $request->input('email');
+        $password = $request->input('password');
+
+        $userModel = new User();
+        $userModel->name = $name;
+        $userModel->surname = $surname;
+        $userModel->email = $email;
+        $userModel->password = Hash::make($password);
+        $userModel->save();
+        
+        return Response()->json([
+            'success' => true, 
+            'message' => 'Usuario registrado con éxito'
+        ]);
+
     }
 
     public function edit($id) {
@@ -31,5 +47,10 @@ class UserController extends Controller
         }
         $scripts = ['users.js'];
         return view('admin.users.edit', compact('userData', 'scripts')); 
+    }
+
+    public function update() {
+        // actualizar datos usuario
+        // ...
     }
 }

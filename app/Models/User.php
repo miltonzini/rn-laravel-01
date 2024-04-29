@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class User extends Model
 {
     use HasFactory;
+
+    public $table = 'users';
+    public $primaryKey = 'id';
+    // public $timestamps = false;
+
 }
