@@ -64,4 +64,11 @@
             </div>
         </div>
     </main>
+@push('scripts')
+@if (isset($scripts) && !empty($scripts))
+@foreach ($scripts as $script)
+    <script src="{{ asset('public/js/functions/' . $script) }}"></script>
+@endforeach
+@endif
+@endpush
 </x-adminLayout>

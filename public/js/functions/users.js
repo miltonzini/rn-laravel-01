@@ -1,1 +1,2 @@
-alert('users.js called');
+// alert('users.js called');
+console.log('Users.js called');
