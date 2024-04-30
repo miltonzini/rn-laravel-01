@@ -39,6 +39,7 @@
                                         </div>
                                     </div>
                                     <div class="card-body table-responsive p-0">
+                                        @if (!empty($users) && count($users) > 0 )
                                         <table class="table table-hover text-nowrap">
                                             <thead>
                                                 <tr>
@@ -65,6 +66,12 @@
                                                 
                                             </tbody>
                                         </table>
+                                        @else
+                                            <div class="px-4 py-4">
+                                                <h4>No se encontraron usuarios</h4>
+                                            </div>
+                                        @endif
+                                        {{-- endif --}}
                                     </div>
                                 </div>
                             </div>
