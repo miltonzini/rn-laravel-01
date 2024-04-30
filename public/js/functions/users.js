@@ -18,7 +18,9 @@ function createUser(action, method, data) {
             }
         },
         error: function(xhr) {
-            // console.log("hubo error");
+            $.each(xhr.responseJSON.errors, function(index, value) {
+                alert(value);
+            });
         }
     })
 }
