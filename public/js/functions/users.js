@@ -2,6 +2,7 @@
 // console.log('Users.js called');
 
 function createUser(action, method, data) {
+    console.log('a');
     $.ajax({
         url: action, 
         type: method,
@@ -12,14 +13,24 @@ function createUser(action, method, data) {
     	processData: false,
         success: function(response) {
             if (response.success) {
-                alert(response.message);
+                Swal.fire({
+                    title: "Mensaje",
+                    text: response.message,
+                    icon: "success"
+                });
                 
                 $('#create-user-form')[0].reset();
             }
         },
         error: function(xhr) {
+            console.log('b');
             $.each(xhr.responseJSON.errors, function(index, value) {
-                alert(value);
+                Swal.fire({
+                    title: "Error",
+                    text: value,
+                    icon: "warning"
+                });
+                console.log('swal fired');
             });
         }
     })
