@@ -10,7 +10,7 @@ class UserController extends Controller
 {
     
     public function index() {
-        $users = User::select('id', 'name', 'surname', 'email', 'created_at')->orderBy('id', 'desc')->get();
+        $users = User::select('id', 'name', 'surname', 'email', 'created_at')->orderBy('id', 'desc')->paginate(20);
         $scripts = ['users'];
         return view('admin.users.index', compact('users', 'scripts'));
     }
