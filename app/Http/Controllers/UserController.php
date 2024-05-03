@@ -72,8 +72,53 @@ class UserController extends Controller
         return view('admin.users.edit', compact('userData', 'scripts')); 
     }
 
-    public function update() {
-        // actualizar datos usuario
-        // ...
+    public function update($id, Request $request) {
+        // TODO
+        $messages = [
+            'name.required' => 'Debes ingresar tu nombre',
+            'name.min' => 'El nombre debe tener al menos 3 caracteres',
+            'name.max' => 'El nombre debe tener un máximo de 20 caracteres',
+            'surname.required' => 'Debes ingresar tu apellido',
+            'surname.min' => 'El apellido debe tener al menos 3 caracteres',
+            'surname.max' => 'El apellido debe tener un máximo de 20 caracteres',
+            'email.required' => 'Debes ingresar tu email',
+            'email.max' => 'El email debe tener un máximo de 60 caracteres',
+            'email.email' => 'El email es inválido',
+            'email.unique' => 'Ya existe un usuario registrado con ese email',
+            'password.min' => 'El password debe contener al menos 5 caracteres',
+        ];
+        
+        $validations = $request->validate([
+           'name' => 'required|min:3|max:20',
+           'surname' => 'required|min:3|max:20',
+           'email' => 'required|max:60|email|unique:users,email,'.$id.',id',
+           'password' => 'nullable|min:5',
+
+        ], $messages);
+
+        $name = $request->input('name');
+        $surname = $request->input('surname');
+        $email = $request->input('email');
+        $password = $request->input('password');
+
+        if ($password) {
+            User::where('id', $id)->update([
+                'name' => $name,
+                'surname' => $surname,
+                'email' => $email,
+                'password' => Hash::make($password)
+            ]);
+        } else {
+            User::where('id', $id)->update([
+                'name' => $name,
+                'surname' => $surname,
+                'email' => $email,
+            ]);
+        }
+
+        return Response()->json([
+            'success' => true, 
+            'message' => 'Usuario editado con éxito'
+        ]);
     }
 }

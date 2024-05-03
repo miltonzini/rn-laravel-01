@@ -10,14 +10,18 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <link rel="stylesheet" href="{{ mix('vendor/adminlte/plugins/fontawesome-free/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ mix('vendor/adminlte/css/adminlte.min.css') }}">
+    {{-- temp tailwindcss cdn --}}
     <script src="https://cdn.tailwindcss.com"></script>
 
 </head>
 <body>
     
     {{ $slot }}
-
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
+        var url = '{{ url("/") }}';
+    </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     {{-- <script src="{{ mix('vendor/adminlte/plugins/jquery/jquery.min.js') }}"></script> --}}
     {{-- <script src="{{ mix('vendor/adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script> --}}
