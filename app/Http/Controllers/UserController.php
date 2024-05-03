@@ -63,7 +63,6 @@ class UserController extends Controller
     }
 
     public function edit($id) {
-        // mostrar formulario para editar usuario
         $userData = User::select('id', 'name', 'surname', 'email')->where('id', $id)->first();
         if (!$userData) {
             return redirect()->route('admin.users.index');
@@ -73,7 +72,6 @@ class UserController extends Controller
     }
 
     public function update($id, Request $request) {
-        // TODO
         $messages = [
             'name.required' => 'Debes ingresar tu nombre',
             'name.min' => 'El nombre debe tener al menos 3 caracteres',

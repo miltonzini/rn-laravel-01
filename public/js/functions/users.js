@@ -1,8 +1,6 @@
-// alert('users.js called');
-console.log('Users.js called');
+// console.log('Users.js called');
 
 function createUser(action, method, data) {
-    console.log('a');
     $.ajax({
         url: action, 
         type: method,
@@ -23,14 +21,12 @@ function createUser(action, method, data) {
             }
         },
         error: function(xhr) {
-            console.log('b');
             $.each(xhr.responseJSON.errors, function(index, value) {
                 Swal.fire({
                     title: "Error",
                     text: value,
                     icon: "warning"
                 });
-                console.log('swal fired');
             });
         }
     })
@@ -47,7 +43,6 @@ $(document).on('submit', '#create-user-form', function(event) {
 
 
 function updateUser(action, method, data) {
-    console.log('a');
     $.ajax({
         url: action, 
         type: method,
@@ -70,23 +65,19 @@ function updateUser(action, method, data) {
             }
         },
         error: function(xhr) {
-            console.log('b');
             $.each(xhr.responseJSON.errors, function(index, value) {
                 Swal.fire({
                     title: "Error",
                     text: value,
                     icon: "warning"
                 });
-                console.log('swal fired');
             });
         }
     })
-    console.log('pasó por el ajax');
 }
 
 $(document).on('submit', '#edit-user-form', function(event) {
     event.preventDefault();
-    console.log('click en submit de Editar usuario');
     let action = $(this).attr('action'),
     method = $(this).attr('method'),
     data = new FormData(this);
