@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {return view('home');})->name('home');
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login-user', [LoginController::class, 'login'])->name('login-user');
 
 Route::get('/admin', function () {return view('admin.dashboard');})->name('dashboard');
 

@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <a href="{{ route('dashboard')}}" class="brand-link">
-        <span class="brand-text font-weight-light">Nombre y apellido</span>
+        <span class="brand-text font-weight-bold">{{ Session('administrator')['name'] . ' ' . Session('administrator')['surname'] }}</span>
     </a>
     <div class="sidebar">
         <nav class="mt-2">
