@@ -84,3 +84,48 @@ $(document).on('submit', '#edit-user-form', function(event) {
 
     updateUser(action, method, data);
 })
+
+
+function deleteUser(userId) {
+    $.ajax({
+        url: url + '/admin/users/delete/' + userId,
+        type: 'delete',
+        data: null,
+        dataType: 'json',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function(response) {
+            if (response.success) {
+                Swal.fire({
+                    title: "Mensaje",
+                    text: response.message,
+                    icon: "success"
+                }).then(function(){
+                    location.reload();
+                });                
+            } else {
+                Swal.fire({
+                    title: "Error",
+                    text: response.message,
+                    icon: "error"
+                });
+            }
+        },
+        error: function(xhr) {
+            $.each(xhr.responseJSON.errors, function(index, value) {
+                Swal.fire({
+                    title: "Error",
+                    text: value,
+                    icon: "warning"
+                });
+            });
+        }
+    })
+}
+
+$(document).on('click', '.delete-user-button', function() {
+    let userId = $(this).attr('data-user-id');
+    deleteUser(userId);
+})
+

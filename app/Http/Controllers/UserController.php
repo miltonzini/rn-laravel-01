@@ -11,9 +11,10 @@ class UserController extends Controller
     
     public function index() {
         $users = User::select('id', 'name', 'surname', 'email', 'created_at')->orderBy('id', 'desc')->paginate(20);
-        $scripts = ['users'];
+        $scripts = ['users.js'];
         return view('admin.users.index', compact('users', 'scripts'));
     }
+
     public function create() {
         $scripts = ['users.js'];
         return view('admin.users.create', compact('scripts'));
@@ -117,6 +118,23 @@ class UserController extends Controller
         return Response()->json([
             'success' => true, 
             'message' => 'Usuario editado con éxito'
+        ]);
+    }
+
+    public function delete($id) {
+        $userData = User::where('id', $id)->first();
+        
+        if(!$userData) {
+            return Response()->json([
+                'success' => false,
+                'message' => 'No existe usuario registrado con dicho ID'
+            ]);
+        }
+
+        User::where('id', $id)->delete();
+        return Response()->json([
+            'success' => true,
+            'message' => 'Usuario eliminado con éxito'
         ]);
     }
 }

@@ -15,6 +15,7 @@ Route::get('/admin/users/create', [UserController::class, 'create'])->name('admi
 Route::post('/admin/users/store', [UserController::class, 'store'])->name('admin.users.store'); // Guardar usuario en la base de datos
 Route::get('/admin/users/edit/{id}', [UserController::class, 'edit'])->name('admin.users.edit'); // Mostrar formulario para editar usuario
 Route::post('/admin/users/update/{id}', [UserController::class, 'update'])->name('admin.users.update'); // Actualizar usuario en la base de datos
+Route::delete('/admin/users/delete/{id}', [UserController::class, 'delete'])->name('admin.users.delete'); // Eliminar usuario
 
 // Temp
 Route::get('/admin/test', function () {return view('admin.test');})->name('admin.test');

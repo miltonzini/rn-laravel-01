@@ -59,7 +59,23 @@
                                                     <td>{{ $user->created_at }}</td>
                                                     <td>
                                                         <a class="btn btn-primary btn-sm" href="{{ route('admin.users.edit', ['id' => $user->id]) }}">Editar</a>
-                                                        <a class="btn btn-danger btn-sm" href="#">Eliminar</a>
+                                                        <a class="btn btn-danger btn-sm" href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#user-delete-modal-{{$user->id}}">Eliminar</a>
+                                                        
+
+                                                        <div class="modal fade" id="user-delete-modal-{{$user->id}}">
+                                                            <div class="modal-dialog">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header">¿Está seguro de querer eliminar al usuario?</div>
+                                                                    <div class="modal-body">
+                                                                        <p>¿Eliminar a <strong>{{ $user->name . ' ' . $user->surname }}</strong>?</p>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                                                                        <button type="button" class="btn btn-danger delete-user-button" data-user-id="{{ $user->id }}">Eliminar</button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -90,4 +106,11 @@
         </footer>
         <aside class="control-sidebar control-sidebar-dark"></aside>
     </div>
+@push('scripts')
+@if (isset($scripts) && !empty($scripts))
+@foreach ($scripts as $script)
+    <script src="{{ asset('public/js/functions/' . $script) }}"></script>
+@endforeach
+@endif
+@endpush
 </x-adminLayout>        
