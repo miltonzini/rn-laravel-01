@@ -8,7 +8,7 @@
                 <li class="nav-item">
                     <a href="{{ route('dashboard')}}" class="nav-link {{ setActiveRoute('dashboard') }}">
                         <i class="nav-icon fas fa-home"></i>
-                        <p>Inicio</p>
+                        <p>Inicio Admin</p>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -38,6 +38,12 @@
                     <a href="index.html" class="nav-link">
                         <i class="nav-icon fas fa-key"></i>
                         <p>Cerrar sesión</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('home')}}" class="nav-link">
+                        <i class="nav-icon fas fa-arrow-left"></i>
+                        <p>Inicio (público)</p>
                     </a>
                 </li>
             </ul>

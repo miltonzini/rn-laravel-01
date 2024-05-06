@@ -14,7 +14,7 @@ function loginUser(action, method, data) {
         }, 
         success: function (response) {
             if (response.success) {
-                window.location.href = url + '/admin/users/index'
+                window.location.href = url + '/admin'
             } else {
                 Swal.fire({
                     title: 'Error',
