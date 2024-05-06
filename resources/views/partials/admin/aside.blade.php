@@ -35,7 +35,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="index.html" class="nav-link">
+                    <a href="{{ route('logout-user')}}" class="nav-link">
                         <i class="nav-icon fas fa-key"></i>
                         <p>Cerrar sesión</p>
                     </a>

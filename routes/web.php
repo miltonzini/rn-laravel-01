@@ -7,9 +7,9 @@ use App\Http\Middleware\AuthMiddleware;
 
 Route::get('/', function () {return view('home');})->name('home');
 
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
-
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); // Mostrar formulario
 Route::post('/login-user', [LoginController::class, 'login'])->name('login-user');
+Route::get('/logout-user}', [LoginController::class, 'logout'])->name('logout-user');
 
 Route::middleware([AuthMiddleware::class])->group(function () {
     Route::get('/admin', function () {return view('admin.dashboard');})->name('dashboard');
