@@ -11,10 +11,6 @@ class UserController extends Controller
 {
     
     public function index() {
-        if(!Session::has('administrator')) {
-            return redirect()->route('home');
-        }
-
         $users = User::select('id', 'name', 'surname', 'email', 'created_at')->orderBy('id', 'desc')->paginate(20);
         $scripts = ['users.js'];
         return view('admin.users.index', compact('users', 'scripts'));

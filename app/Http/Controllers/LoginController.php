@@ -10,6 +10,10 @@ use Illuminate\Support\Facades\Session;
 class LoginController extends Controller
 {
     public function showLoginForm() {
+        if(Session::has('administrator')) {
+            return redirect()->route('dashboard');
+        }
+
         $scripts = ['users.js'];
         return view('admin.login', compact('scripts'));
     }
