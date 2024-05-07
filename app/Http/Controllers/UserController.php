@@ -132,6 +132,13 @@ class UserController extends Controller
             ]);
         }
 
+        if ($id == Session('administrator')['userId']) {
+            return Response()->json([
+                'succes' => false,
+                'message' => 'No puedes eliminarte a tí mismo del sistema'
+            ]);
+        }
+
         User::where('id', $id)->delete();
         return Response()->json([
             'success' => true,
