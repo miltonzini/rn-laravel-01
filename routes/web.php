@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\AuthMiddleware;
+use App\Http\Middleware\PreventBackHistoryMiddleware;
 
 Route::get('/', function () {return view('home');})->name('home');
 
@@ -11,7 +12,7 @@ Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login'); 
 Route::post('/login-user', [LoginController::class, 'login'])->name('login-user');
 Route::get('/logout-user}', [LoginController::class, 'logout'])->name('logout-user');
 
-Route::middleware([AuthMiddleware::class])->group(function () {
+Route::middleware([AuthMiddleware::class, PreventBackHistoryMiddleware::class])->group(function () {
     Route::get('/admin', function () {return view('admin.dashboard');})->name('dashboard');
 
     Route::get('/admin/users/index', [UserController::class, 'index'])->name('admin.users.index'); // Listar usuarios
