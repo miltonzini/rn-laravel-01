@@ -96,7 +96,6 @@ function updateUser(action, method, data) {
                     window.location.href = url + '/admin/users/index';
                 });
                 
-                $('#create-user-form')[0].reset();
             }
         },
         error: function(xhr) {
