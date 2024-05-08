@@ -13,14 +13,16 @@ Route::post('/login-user', [LoginController::class, 'login'])->name('login-user'
 Route::get('/logout-user}', [LoginController::class, 'logout'])->name('logout-user');
 
 Route::middleware([AuthMiddleware::class, PreventBackHistoryMiddleware::class])->group(function () {
-    Route::get('/admin', function () {return view('admin.dashboard');})->name('dashboard');
+    Route::prefix('admin')->group(function() {
+        Route::get('/', function () {return view('admin.dashboard');})->name('dashboard');
 
-    Route::get('/admin/users/index', [UserController::class, 'index'])->name('admin.users.index'); // Listar usuarios
-    Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create'); // Mostrar formulario para crear usuario
-    Route::post('/admin/users/store', [UserController::class, 'store'])->name('admin.users.store'); // Guardar usuario en la base de datos
-    Route::get('/admin/users/edit/{id}', [UserController::class, 'edit'])->name('admin.users.edit'); // Mostrar formulario para editar usuario
-    Route::post('/admin/users/update/{id}', [UserController::class, 'update'])->name('admin.users.update'); // Actualizar usuario en la base de datos
-    Route::delete('/admin/users/delete/{id}', [UserController::class, 'delete'])->name('admin.users.delete'); // Eliminar usuario
+        Route::get('/users/index', [UserController::class, 'index'])->name('admin.users.index'); // Listar usuarios
+        Route::get('/users/create', [UserController::class, 'create'])->name('admin.users.create'); // Mostrar formulario para crear usuario
+        Route::post('/users/store', [UserController::class, 'store'])->name('admin.users.store'); // Guardar usuario en la base de datos
+        Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('admin.users.edit'); // Mostrar formulario para editar usuario
+        Route::post('/users/update/{id}', [UserController::class, 'update'])->name('admin.users.update'); // Actualizar usuario en la base de datos
+        Route::delete('/users/delete/{id}', [UserController::class, 'delete'])->name('admin.users.delete'); // Eliminar usuario
+    });
 });
 
 // Temp
