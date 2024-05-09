@@ -28,3 +28,15 @@ aside .nav-link .active {
     display: flex;
     flex-direction: column;
 }
+
+.debug-modal {
+    background: #bdefbd;
+    color: black;
+    padding: 1.5rem;
+    position: fixed;
+    top: 5px;
+    left: 5px;
+    max-width: 50%;
+    z-index: 500000;
+    border-radius: 5px;
+}
