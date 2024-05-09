@@ -22,6 +22,7 @@ Route::middleware([AuthMiddleware::class, PreventBackHistoryMiddleware::class])-
         Route::get('/users/edit/{id}', [UserController::class, 'edit'])->name('admin.users.edit'); // Mostrar formulario para editar usuario
         Route::post('/users/update/{id}', [UserController::class, 'update'])->name('admin.users.update'); // Actualizar usuario en la base de datos
         Route::delete('/users/delete/{id}', [UserController::class, 'delete'])->name('admin.users.delete'); // Eliminar usuario
+        Route::post('/users/index', [UserController::class, 'search'])->name('admin.users.index'); // Buscar en el listado de usuarios
     });
 });
 

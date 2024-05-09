@@ -26,18 +26,20 @@
                             <div class="col-12">
                                 <div class="card">
                                     <div class="card-header">
+                                        @if (isset($usersCount))                                            
                                         <h3 class="card-title">Total usuarios: {{ $usersCount }}</h3>
+                                        @endif
                                         <div class="card-tools">
-                                            <div class="input-group input-group-sm" style="width: 150px;">
-                                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-                                                <div class="input-group-append">
-                                                    <button type="submit" class="btn btn-default">
-                                                    <i class="fas fa-search"></i>
-                                                    </button>
+                                            <form action="{{ route('admin.users.index') }}" method="post" class="search-form ">
+                                                @csrf
+                                                <div class="input-group input-group-sm" style="width: 150px;">
+                                                    <input type="text" name="search" class="form-control float-right" placeholder="Search" value="{{ isset($search) ? $search : '' }}">
+                                                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
                                                 </div>
-                                            </div>
+                                            </form>
                                         </div>
                                     </div>
+
                                     <div class="card-body table-responsive p-0">
                                         @if (!empty($users) && count($users) > 0 )
                                         <table class="table table-hover text-nowrap">
